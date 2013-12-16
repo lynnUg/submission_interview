@@ -1,0 +1,58 @@
+
+<html>
+    <head>
+    	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-fluid-adj.css" rel="stylesheet" media="screen">
+    <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/rango-ajax.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <title>Dashboard</title>
+</head>
+
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="navbar-inner">
+       <div class="container">
+          
+           <a class="brand" href="/">Dashboard</a>
+
+           <div class="nav-collapse collapse">
+               <ul class="nav pull-right">
+                  {% if user.is_authenticated %}
+                    <li class="navbar-text">Welcome, {{ user.username }}!</li>
+                    <li><a href="/logout/">Logout</a></li>
+                  {% else %}
+                  {% endif %}
+                   
+               </ul>
+            
+           </div>
+           <!--/.nav-collapse -->
+
+       </div>
+
+   </div>
+
+</div>
+
+<div class="container-fluid">
+<div class="row-fluid">
+
+ <div class="span9">
+        {% block table_block %}
+        {% endblock %}
+    </div>
+  </div>
+    <!--/span-->
+    <div class="span12 offset1">
+        {% block body_block %}
+        {% endblock %}
+    </div>
+    <!--/span-->
+</div>

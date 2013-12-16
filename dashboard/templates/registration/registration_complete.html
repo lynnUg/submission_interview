@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% comment %}
+**registration/registration_complete.html**
+
+Used after successful completion of the registration form. This
+template has no context variables of its own, and should simply inform
+the user that an email containing account-activation information has
+been sent.
+{% endcomment %}
+
+{% block body_block %}
+<div class="hero-unit">
+    
+    <div class="container">
+<h1>Thanks for signing up!!<h1>
+<h1>Feel free to <a href="/login">Log in </a><h1>
+</div>
+</div>
+{% endblock %}

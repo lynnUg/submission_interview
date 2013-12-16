@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body_block %}
+  
+   <div class="hero-unit">
+    <h1>Login to Dashboard</h1>
+
+    <div class="container">
+
+    
+    	<form class="form-signin span4" method="post" id="frmLogin" action="{{ app_path }}">
+		{% csrf_token %}
+		<fieldset>
+		<!-- Text input-->
+		<div class="control-group">
+ 		 	<label class="control-label" for="username">Username</label>
+  			<div class="controls">
+    
+     		{% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %} 
+    		{{ form.username.errors }}
+    		{{ form.username }}
+ 			 </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="control-group">
+ 		 	<label class="control-label" for="password">Password</label>
+  			<div class="controls">
+    		{% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+     		{{ form.password }}
+   		 	<input type="hidden" name="this_is_the_login_form" value="1" />
+    		<input type="hidden" name="next" value="{{ next }}" />
+ 	 		</div>
+		</div>
+
+		<!-- Button -->
+		<div class="control-group">
+  			<label class="control-label" for="submit"></label>
+  			<div class="controls">
+    		<button id="submit" name="submit" class="btn btn-primary">Login</button>
+  			</div>
+		</div>
+
+		</fieldset>
+	</form>
+   
+	</div>
+	 <p class="notice"> Not registered? <a href="/register">Sign up</a></p>
+</div>
+    
+    {% endblock %}

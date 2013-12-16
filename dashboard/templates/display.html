@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+
+{% block table_block %}
+{%if object_list %}
+<table>
+<col width="1"></col>
+<col></col>
+<thead>
+  <th>Phone id</th>
+    <th>Latitude</th>
+     <th>Longitude</th>
+</thead>
+<tbody>
+
+  {% for gps in object_list %}
+  <tr class="{% cycle odd,even %}">
+    <td class="vote">
+     
+    <p> gps.device_name</p>
+      
+      </td>
+    <td class="item">
+      <p> gps.lat</p>
+      
+    </td>
+    <td class="item">
+      <p> gps.longt</p>
+      
+    </td>
+  </tr>{% endfor %}
+</tbody>
+</table>
+{% else %}
+<h1>No recent user locations</h1>
+{% endif %}
+
+{% endblock%}

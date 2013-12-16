@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% comment %}
+**registration/registration_form.html**
+Used to show the form users will fill out to register. By default, has
+the following context:
+
+``form``
+    The registration form. This will be an instance of some subclass
+    of ``django.forms.Form``; consult `Django's forms documentation
+    <http://docs.djangoproject.com/en/dev/topics/forms/>`_ for
+    information on how to display this in a template.
+{% endcomment %}
+
+{% block  body_block %}
+<div class="hero-unit">
+    <h1> Register<h1>
+    <div class="container">
+
+<form class="form-signin span4" action="" method="POST">
+     {% csrf_token %}
+     <fieldset>
+   <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+    
+            <p>{{ form.username.errors }}</p>
+            {{ form.username }}
+             </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="control-group">
+            <label class="control-label" for="password">Email</label>
+            <div class="controls">
+           <p>{{ form.email.errors }}</p>
+            {{ form.email }}
+           
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Password </label>
+            <div class="controls">
+           <p>{{ form.password1.errors }}</p>
+            {{ form.password1 }}
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Re enter password</label>
+            <div class="controls">
+           <p>{{ form.password2.errors }}</p>
+            {{ form.password2 }}
+            
+            </div>
+        </div>
+
+     <div class="control-group">
+     <label class="control-label" for="submit"></label>
+  	 <div class="controls">
+     <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+     </div>
+     </div>
+ </fieldset>
+</form>
+</div>
+</div>
+{% endblock %}
